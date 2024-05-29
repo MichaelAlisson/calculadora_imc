@@ -80,10 +80,9 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
           ElevatedButton(
               onPressed: () {
-                double _calcularIMC() {
-                  _imc = _peso / (_altura / 100 * _altura / 100);
-                  return _imc;
-                }
+                setState(() {
+                  _imc = _calcularIMC();
+                });
               },
               child: Text('Calcular IMC')),
           Text('Seu IMC é: $_imc')
@@ -93,7 +92,6 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   double _calcularIMC() {
-    _imc = _peso / (_altura / 100 * _altura / 100);
-    return _imc;
+    return _peso / (_altura / 100 * _altura / 100);
   }
 }
